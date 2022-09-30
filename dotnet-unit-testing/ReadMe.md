@@ -1,22 +1,4 @@
-# Unit Testing
-
-Unit testing should be viewed as an investment. Here are a couple of invaluable returns, this investment facilitates:
-
-1. Better initial delivery of the 1st iteration of new functionality
-2. Alerts in the form of broken unit tests when developers unintentionally break existing code when implementing new features
-3. Unit tests can be re-used in CI/CD Pipelines to prevent broken code making to production environments
-4. Self documenting
-
-## Assumptions 
-
-When a developer writes a line of code, there is an assumption it will work. Every conditional statement, query and case statement is an assumption:
-
-- Is my understanding of how a line of code executes is correct?
-- Will the conditional `if` | `if else` | `else` work as expected?
-- What happens if the data query returns no data, causes an exception, ...?
-- Will the correct `switch` `case` statement work and do I need a `default` fallback?
-
-If any of the above common coding practices or other, are in a newly written or updated block of code, they need to be tested separately in isolation.
+# .NET Unit Testing
 
 ## Structure
 
@@ -26,14 +8,31 @@ If any of the above common coding practices or other, are in a newly written or 
 |	DataService
 |		PersonDataService.cs
 |           Find({...})
+|
+|	Api
+|		PersonController.cs
+|           Find({...})
 ```
 
 **PersonDataService.cs**
 
-Concrete class containing unit testable functions. This pattern proposes a separate test class per function.
+Concrete class containing unit testable functions.
 
-- PersonDataService.Find => FindTests.cs
-- PersonDataService.{FunctionName} => {FunctionName}Tests.cs
+In this context, due to the simplicity of the `PersonDataService.Find`, the assumptions requiring unit testing include:
+
+- Simple predicate?
+- Complex predicate?
+- you could argue all variations of the predicate require testing...
+- What happens if the predicate returns zero results?
+
+**PersonController.cs**
+
+Concrete class containing unit testable Api endpoints. This pattern proposes a separate test class per endpoint.
+
+In this context, due to the simplicity of the `PersonController.Find` endpoint the two assumptions requiring unit testing include:
+
+- Ok 200 result?
+- NotFound 404 result?
 
 ### Unit Test
 
@@ -41,6 +40,11 @@ Concrete class containing unit testable functions. This pattern proposes a separ
 |	DataService.Tests
 |		PersonDataServiceTests
 |			BasePersonDataService.cs
+|			FindTests.cs
+|
+|	Api.Tests
+|		PersonControllerTests
+|			BasePersonController.cs
 |			FindTests.cs
 ```
 
@@ -52,12 +56,24 @@ Convenience functionality written once and inherited by all {Entity}DataService 
 
 Concrete unit tests. 
 
+**BasePersonController.cs:**
+
+Convenience functionality written once and inherited by all PersonController endpoint test classes.
+
+**FindTests.cs:**
+
+Concrete unit tests. 
+
 ## Conventions
 
-- It is optimal to write atomic unit tests. In the context of PersonDataService.Find({...}) testing single features such as:
-    - What happens if the query returns empty results
-    - What happens if the query returns results
-    - Test different parameter combinations
+TODO: write this better...
+
+It is optimal to write atomic unit tests. In the context of:  
+    - PersonDataService.Find({...}) testing single features such as:
+        - What happens if the query returns empty results
+        - What happens if the query returns results
+        - Test different parameter combinations
+
 
 [Characteristics of a good unit test](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices#characteristics-of-a-good-unit-test)
 
