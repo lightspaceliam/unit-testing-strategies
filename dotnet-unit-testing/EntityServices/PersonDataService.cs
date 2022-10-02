@@ -1,7 +1,7 @@
-﻿using DataService.Abstract;
+﻿using EntityServices.Abstract;
 using Entities;
 
-namespace DataService
+namespace EntityServices
 {
     public class PersonDataService : DataServiceBase<Person>
     {

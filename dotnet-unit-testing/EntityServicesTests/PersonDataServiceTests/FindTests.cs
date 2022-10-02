@@ -1,6 +1,6 @@
 ﻿using Entities;
 
-namespace DataService.Tests.PersonDataServiceTests
+namespace EntityServicesTests.PersonDataServiceTests
 {
     public class FindTests : BasePersonDataService
     {

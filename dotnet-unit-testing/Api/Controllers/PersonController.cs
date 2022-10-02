@@ -1,4 +1,4 @@
-using DataService.Abstract;
+using EntityServices.Abstract;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 

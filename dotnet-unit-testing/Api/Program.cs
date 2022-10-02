@@ -1,5 +1,5 @@
-using DataService;
-using DataService.Abstract;
+using EntityServices;
+using EntityServices.Abstract;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 

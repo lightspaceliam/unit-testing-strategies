@@ -1,8 +1,9 @@
-using DataService.Abstract;
+using EntityServices;
+using EntityServices.Abstract;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataService.Tests.PersonDataServiceTests
+namespace EntityServicesTests.PersonDataServiceTests
 {
     public abstract class BasePersonDataService
     {

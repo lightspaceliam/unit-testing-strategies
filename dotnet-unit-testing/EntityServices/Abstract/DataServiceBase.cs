@@ -2,7 +2,7 @@
 using Entities.Abstract;
 using System.Linq.Expressions;
 
-namespace DataService.Abstract
+namespace EntityServices.Abstract
 {
     public abstract class DataServiceBase<T> : IDataService<T> 
         where T : class, IEntity

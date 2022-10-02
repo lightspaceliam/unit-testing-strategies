@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace DataService.Abstract
+namespace EntityServices.Abstract
 {
     public interface IDataService<T>
     {
