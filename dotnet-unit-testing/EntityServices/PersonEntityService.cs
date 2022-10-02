@@ -3,9 +3,9 @@ using Entities;
 
 namespace EntityServices
 {
-    public class PersonDataService : DataServiceBase<Person>
+    public class PersonEntityService : EntityService<Person>
     {
-        public PersonDataService(UnitTestingDbContext context)
+        public PersonEntityService(UnitTestingDbContext context)
             : base(context)
         { }
     }

@@ -2,7 +2,7 @@
 
 namespace EntityServices.Abstract
 {
-    public interface IDataService<T>
+    public interface IEntityService<T>
     {
         List<T> Find(Expression<Func<T, bool>> filter);
     }

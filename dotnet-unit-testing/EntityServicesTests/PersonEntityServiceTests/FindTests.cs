@@ -1,8 +1,8 @@
 ﻿using Entities;
 
-namespace EntityServicesTests.PersonDataServiceTests
+namespace EntityServicesTests.PersonEntityServiceTests
 {
-    public class FindTests : BasePersonDataService
+    public class FindTests : BasePersonEntityService
     {
         /*
          * We do not need to write comments in all our unit tests for:

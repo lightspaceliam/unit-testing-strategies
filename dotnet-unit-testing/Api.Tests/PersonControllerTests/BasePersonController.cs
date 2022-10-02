@@ -22,7 +22,7 @@ namespace Api.Tests.PersonControllerTests
                 .Options;
 
             Context = new UnitTestingDbContext(_options);
-            var personService = new PersonDataService(new UnitTestingDbContext(_options));
+            var personService = new PersonEntityService(new UnitTestingDbContext(_options));
 
             var services = new ServiceCollection()
                 .AddLogging()

@@ -4,12 +4,12 @@ using System.Linq.Expressions;
 
 namespace EntityServices.Abstract
 {
-    public abstract class DataServiceBase<T> : IDataService<T> 
+    public abstract class EntityService<T> : IEntityService<T> 
         where T : class, IEntity
     {
         protected readonly UnitTestingDbContext Context;
 
-        public DataServiceBase(UnitTestingDbContext context) 
+        public EntityService(UnitTestingDbContext context) 
         {
             Context = context;
         }

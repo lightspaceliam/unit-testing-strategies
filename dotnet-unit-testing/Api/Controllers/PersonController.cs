@@ -9,20 +9,20 @@ namespace Api.Controllers
     public class PersonController : ControllerBase
     {
         private readonly ILogger<PersonController> _logger;
-        private readonly IDataService<Person> _personDataService;
+        private readonly IEntityService<Person> _personEntityService;
 
         public PersonController(
             ILogger<PersonController> logger,
-            IDataService<Person> personDataService)
+            IEntityService<Person> personDataService)
         {
             _logger = logger;
-            _personDataService = personDataService;
+            _personEntityService = personDataService;
         }
 
         [HttpGet("find/{id}")]
         public ActionResult Find(string id)
         {
-            var response = _personDataService.Find(p => p.Id.Equals(id, StringComparison.InvariantCultureIgnoreCase));
+            var response = _personEntityService.Find(p => p.Id.Equals(id, StringComparison.InvariantCultureIgnoreCase));
 
             if (!response.Any())
             {

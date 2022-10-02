@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<UnitTestingDbContext>(opt =>
     opt.UseInMemoryDatabase(databaseName: $"TESTING_Api_{DateTime.Now.Ticks}"));
 
-builder.Services.AddTransient<IDataService<Person>, PersonDataService>();
+builder.Services.AddTransient<IEntityService<Person>, PersonEntityService>();
 
 var app = builder.Build();
 

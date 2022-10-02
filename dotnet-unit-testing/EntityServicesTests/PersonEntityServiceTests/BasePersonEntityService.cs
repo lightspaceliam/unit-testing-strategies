@@ -3,15 +3,15 @@ using EntityServices.Abstract;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace EntityServicesTests.PersonDataServiceTests
+namespace EntityServicesTests.PersonEntityServiceTests
 {
-    public abstract class BasePersonDataService
+    public abstract class BasePersonEntityService
     {
-        protected IDataService<Person> Service;
+        protected IEntityService<Person> Service;
         private readonly DbContextOptions<UnitTestingDbContext> _options;
         protected readonly UnitTestingDbContext Context;
 
-        public BasePersonDataService() 
+        public BasePersonEntityService() 
         {
             _options = new DbContextOptionsBuilder<UnitTestingDbContext>()
                 .EnableSensitiveDataLogging()
@@ -21,7 +21,7 @@ namespace EntityServicesTests.PersonDataServiceTests
 
             Context = new UnitTestingDbContext(_options);
 
-            Service = new PersonDataService(new UnitTestingDbContext(_options));
+            Service = new PersonEntityService(new UnitTestingDbContext(_options));
         }
 
         public void InitializeData(List<Person> people)
