@@ -24,8 +24,19 @@ If any of the above common coding practices or other, are in a newly written or 
 | dotnet-unit-testing
 |       Api
 |       Api.Tests
-|       DataService
-|       DataService.Tests
+|       EntityServices
+|       EntityServices.Tests
 ```
 
 TODO: React unit testing
+
+```
+| dotnet-unit-testing
+|       src
+|           App.tsx
+|           components
+|               FormControls
+|                   Input.tsx
+|                   Input.test.tsx
+
+```

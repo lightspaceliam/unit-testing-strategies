@@ -6,7 +6,7 @@
 
 ```
 |	DataService
-|		PersonDataService.cs
+|		PersonEntityService.cs
 |           Find({...})
 |
 |	Api
@@ -14,11 +14,11 @@
 |           Find({...})
 ```
 
-**PersonDataService.cs**
+**PersonEntityService.cs**
 
 Concrete class containing unit testable functions.
 
-In this context, due to the simplicity of the `PersonDataService.Find`, the assumptions requiring unit testing include:
+In this context, due to the simplicity of the `PersonEntityService.Find`, the assumptions requiring unit testing include:
 
 - Simple predicate?
 - Complex predicate?
@@ -38,8 +38,8 @@ In this context, due to the simplicity of the `PersonController.Find` endpoint t
 
 ```
 |	DataService.Tests
-|		PersonDataServiceTests
-|			BasePersonDataService.cs
+|		PersonEntityServiceTests
+|			BasePersonEntityService.cs
 |			FindTests.cs
 |
 |	Api.Tests
@@ -48,9 +48,9 @@ In this context, due to the simplicity of the `PersonController.Find` endpoint t
 |			FindTests.cs
 ```
 
-**BasePersonDataService.cs:**
+**BasePersonEntityService.cs:**
 
-Convenience functionality written once and inherited by all {Entity}DataService test classes.
+Convenience functionality written once and inherited by all {Entity}EntityService test classes.
 
 **FindTests.cs:**
 
@@ -69,7 +69,7 @@ Concrete unit tests.
 TODO: write this better...
 
 It is optimal to write atomic unit tests. In the context of:  
-    - PersonDataService.Find({...}) testing single features such as:
+    - PersonEntityService.Find({...}) testing single features such as:
         - What happens if the query returns empty results
         - What happens if the query returns results
         - Test different parameter combinations
