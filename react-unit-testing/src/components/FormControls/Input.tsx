@@ -11,7 +11,7 @@ import {
     StyledInput,
 } from './styles/input';
 
-interface InputProps {
+export interface InputProps {
     name: string;
     value: string;
     label: string;
@@ -36,6 +36,7 @@ const Input: FC<InputProps> = ({
         >
             <StyledLabel htmlFor={name}>{label}</StyledLabel>
             <StyledInput
+                id={name}
                 name={name}
                 value={value}
                 error={hasError}

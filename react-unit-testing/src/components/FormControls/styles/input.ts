@@ -1,16 +1,17 @@
 import { styled } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
+import red from '@mui/material/colors/red';
 
 const white: string = 'rgb(256,256,256)';
 
 export const StyledLabel = styled(InputLabel)({
     '&.MuiFormLabel-root': {
-        color: white
+        color: white,
     },
 
     '&.MuiFormLabel-root.Mui-error': {
-        color: 'rgb(211,47,47)'
+        color: red[700],
     },
 });
 

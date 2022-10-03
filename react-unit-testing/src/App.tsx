@@ -13,7 +13,8 @@ interface MockFormModel {
 
 const App: FC = (): JSX.Element => {
   const [model, setModel] = useState<MockFormModel>({ name: '' });
-  const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
+  // const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
+  const [errorMessage, setErrorMessage] = useState<string | undefined>('Name is required');
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setModel({
