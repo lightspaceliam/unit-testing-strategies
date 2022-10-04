@@ -1,4 +1,47 @@
-# React Unit Testing Strategy
+# React Unit Testing
+
+## Structure
+
+### Unit Testable Code
+
+```
+|	src
+|		components
+|           FormControls
+|               Input.tsx
+```
+
+**Input.tsx**
+
+Concrete functional component containing unit testable code.
+
+In this context, all props require testing:
+
+- name
+- value
+- label
+- handleChange - you could argue this requires an integration test as it requires the parent component to test the input change 
+- errorMessage
+- type
+
+### Unit Test
+
+```
+|	src
+|		components
+|           FormControls
+|               Input.tsx
+|               Input.test.tsx
+```
+
+**Input.test.tsx:**
+
+Concrete unit tests. 
+
+## Conventions
+
+A popular convention with React TypeScript/JavaScript is to locate the unit testing file in the same directory as the functional file.
+
 
 ## Helpful Hints
 
@@ -19,8 +62,12 @@ describe('Some description', () => {
                 handleChange={inputProps.handleChange}                   
             />
         );
-        const element = screen.getByRole('textbox', { name: inputProps.label });
-        console.log(prettyDOM(element));
+
+        screen.debug();
+        // or
+        const htmlElement = screen.getByRole('textbox', { name: inputProps.label });
+        console.log(prettyDOM(htmlElement));
+
     });
 });
 ```
@@ -62,7 +109,7 @@ Here are the accessible roles:
         type="text"
         value="TestValue"
       />
-      
+
 // Update to:
 const element = screen.getByRole('textbox', { name: /TestLabel/i });
 ```

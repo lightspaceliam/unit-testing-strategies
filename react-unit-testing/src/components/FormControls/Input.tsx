@@ -17,6 +17,7 @@ export interface InputProps {
     label: string;
     handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
     errorMessage?: string;
+    type?: string;
 }
 
 const Input: FC<InputProps> = ({
@@ -24,7 +25,8 @@ const Input: FC<InputProps> = ({
     value,
     label,
     handleChange,
-    errorMessage = undefined
+    errorMessage = undefined,
+    type = 'text'
 }): JSX.Element => {
 
     const hasError = errorMessage !== undefined;
@@ -42,7 +44,7 @@ const Input: FC<InputProps> = ({
                 error={hasError}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => handleChange(event)}
                 aria-describedby={`form control ${name}`}
-                
+                type={type}
             />
             <FormHelperText>{hasError && errorMessage}</FormHelperText>
         </FormControl>
